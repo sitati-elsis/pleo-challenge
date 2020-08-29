@@ -68,6 +68,7 @@ def archive_event_files(event_files):
 
 
 def consume_events(event_type, events_dir):
+    events_dir = os.path.join(events_dir, event_type)
     event_files = get_list_of_event_json_files(events_dir)
     events = []
     for event_file in event_files:
