@@ -82,3 +82,26 @@ Lets just have one table cleverly named `events` with the following structure.
 Lets have a unique constrait on the `event_id` so that we avoid duplicates.
 
 Lets have a `type` and `event_at` field. They may be useful for sharding and lookups later on.
+
+
+## ETL Implementation
+
+### Event validation
+
+We can probably validate the event data before saving by checking:
+
+1. If the even json filename is a UUID format
+
+2. if it has the following fields.
+
+    - metadata
+    - payload
+ 
+ Make sure the table is created when the service spins up
+ 
+ What do we do with the files we have read already. 
+ In a better system give more time we could archive it for this implementation we will delete it.
+ 
+ We will keep an open loop that listens for new files in the events folder at intervals to process the files.
+ 
+ A better implementation is to have those files on s3 and use something fancy like an s3 sensor.
