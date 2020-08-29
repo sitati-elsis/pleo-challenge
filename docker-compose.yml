@@ -15,6 +15,9 @@ services:
     depends_on:
       - dwh
     command: ["./wait-for-it.sh", "dwh:5432", "--", "python", "main.py"]
+    volumes:
+      - ./data/events/inbox/:/app/events
+      - ./data/logs/etl:/app/logs
     image: data-eng-challenge/etl:latest
     build: 
       context: ./etl
