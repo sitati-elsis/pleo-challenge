@@ -105,3 +105,13 @@ We can probably validate the event data before saving by checking:
  We will keep an open loop that listens for new files in the events folder at intervals to process the files.
  
  A better implementation is to have those files on s3 and use something fancy like an s3 sensor.
+
+ ### Testing that the pipeline works
+
+ List the docker containers to get the container id for the postgress database using the `docker -ps -a` command
+
+ Use the command `docker exec -it <container id> bash` to get a bash shell in the container
+
+ Connect into the database using the `psql -U dwh` command
+
+ Write whatever SQL statements you have in mind to get the records stored in the events table
