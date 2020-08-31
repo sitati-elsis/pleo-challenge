@@ -7,7 +7,7 @@ I looked over ... and then I wrote down a plan to ...
 
 Let me run the containers and investigate how events are generated and stored.
 
-Hmm.. so all events go into an `events/inbox/<type>` folder as a json file.
+Hmm.. so all events go into an `data/events/inbox/<type>` folder as a json file.
 
 The event json files are prefixed with the event ID which is a UUID. 
 
@@ -99,8 +99,8 @@ We can probably validate the event data before saving by checking:
  
  Make sure the table is created when the service spins up
  
- What do we do with the files we have read already. 
- In a better system give more time we could archive it for this implementation we will delete it.
+ What do we do with the files we have read already? 
+ In a better system given more time we could archive it. For for this implementation we will just delete it.
  
  We will keep an open loop that listens for new files in the events folder at intervals to process the files.
  
